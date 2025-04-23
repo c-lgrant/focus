@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  uvicorn_app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      GOOGLE_API_KEY: ""
+      MODEL_ID: "gemini-2.0-flash"
+
+  streamlit_app:
+    build:
+      context: .
+    ports:
+      - "8501:8501"
+    environment:
+      UVICORN_APP_URL: http://uvicorn_app:8000
+    command: poetry run streamlit run streamlit_app.py
