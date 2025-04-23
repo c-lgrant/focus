@@ -13,7 +13,7 @@ A FastAPI backend running under Uvicorn.
 - **Environment Variables**:
    - `HOST`: Listening address (default `0.0.0.0`)
    - `PORT`: Listening port (default `8000`)
-   - `GOOGLE_API_KEY`: API key for Google services (set accordingly)
+   - `GOOGLE_API_KEY`: API key for Google services (You can get this from - https://aistudio.google.com )
    - `MODEL_ID`: ID of the model to use (default `gemini-2.0-flash`)
 
 ### 2. `streamlit_app`
