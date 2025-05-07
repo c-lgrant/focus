@@ -1,25 +1,21 @@
+from fastapi import APIRouter
 import os
 
 import httpx
-from fastapi import FastAPI
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
 
-from src.db_session import get_session
-from src.function_calling import query_database
-from src.system_instructions import system_instructions
+from src.llm_service.system_instructions import system_instructions
 
-app = FastAPI()
+from src.llm_service.function_calling import query_database
 
-db = get_session()
-
+router = APIRouter(prefix="/llm", tags=["llm"])
 
 class TextInput(BaseModel):
     text: str
 
-
-@app.post("/query-text")
+@router.post("/query-text")
 async def process_text(input: TextInput):
     #couldnt find spec for v1.0
     doc_data = httpx.get("https://focus.finops.org/wp-content/uploads/2024/11/FOCUS-spec-v1_1.pdf").content

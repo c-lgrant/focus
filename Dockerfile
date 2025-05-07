@@ -18,7 +18,7 @@ COPY streamlit_app.py ./
 
 ENV HOST=0.0.0.0 \
     PORT=80 \
-    APP=src.app:app
+    APP=src.api.app:app
 
 CMD uvicorn $APP --host $HOST --port $PORT
 

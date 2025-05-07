@@ -8,7 +8,7 @@ st.title("Focus Searcher")
 user_input = st.text_input("Enter a query:")
 
 if st.button("Send"):
-    response = requests.post(f"{os.getenv('UVICORN_APP_URL')}/query-text", json={"text": user_input}).json()
+    response = requests.post(f"{os.getenv('UVICORN_APP_URL')}/llm/query-text", json={"text": user_input}).json()
 
     # Render the answer
     st.markdown("### Answer")

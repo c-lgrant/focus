@@ -1,5 +1,5 @@
 import re
-from src.db_session import get_session
+from src.utils.db_session import get_session
 import duckdb
 
 focus_data = get_session()
